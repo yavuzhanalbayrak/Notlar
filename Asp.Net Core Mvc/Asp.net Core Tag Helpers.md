@@ -20,12 +20,16 @@
 <form asp-controller="Admin" asp-action="UpdateCategories" asp-route-id=@category.Id method="get">
 ```
 ## asp-for
-*Model binding yapmaya yarar.* 
+- *"<input>" tag'inin içinde kullanılırsa Model binding yapmaya yarar.* 
 ```csharp
 @model Models.CategoryCreateVM
 ```
 ```html
 <input asp-for="Name" type="text">
+```
+- *"<label>" tag'inin içinde kullanılırsa ilgili prop'un validation'ının display değerini döndürür.*
+```html
+<label asp-for="OgrAd" class="control-label"></label>
 ```
 ## asp-validation-for
 *Validation işlemleri sırasında fırlatılan hata mesajını yakalar ve yazdırır.*
