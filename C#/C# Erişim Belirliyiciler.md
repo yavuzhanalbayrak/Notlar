@@ -1,6 +1,7 @@
 ﻿# C# Erişim Belirleyiciler
 **Erişim belirleyiciler nedir?**
-C# dilinde, bir sınıfın, özelliğin, metotun veya diğer üye türlerinin erişilebilirliğini belirtmek için kullanılan erişim belirleyicileri (access modifiers) vardır. İşte C# dilindeki temel erişim belirleyicileri: 
+
+*C# dilinde, bir sınıfın, özelliğin, metotun veya diğer üye türlerinin erişilebilirliğini belirtmek için kullanılan erişim belirleyicileri (access modifiers) vardır. İşte C# dilindeki temel erişim belirleyicileri:*
 ## Default:
 Eğer bir sınıf veya üye için hiçbir erişim belirleyici belirtilmemişse, varsayılan olarak internal erişim belirleyicisi kullanılır (sınıflar için). Ancak alanlar, metotlar ve özellikler için varsayılan erişim belirleyici private'tır.
 ## public: 
