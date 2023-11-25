@@ -5,8 +5,11 @@
 
    ## Notlar
 Casting işlemi[(int)mesaj, (double)mesaj] --> unboxing, Bilinçli tür dönüşümü, int-char(ASCII) dönüşümü.
+
 C# Dilinde değer türlü değişkenler normal şartlarda null değer alamazlar.
+
 İki aritmetik değerin işlemi sonucunda sonuç büyük olan türde döner. (int/double=double) İstisna: (byte - byte = int).
+
 Hata Türleri:
 - Derleme/Syntax/Sözdizimi Hatası
 - Runtime Hataları (Try-Catch)
