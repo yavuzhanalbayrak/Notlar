@@ -2,6 +2,7 @@
 **Model Binding:** *Model binding, bir web uygulamasında kullanıcının girişlerini (HTTP isteği içindeki verileri) bir model nesnesine otomatik olarak bağlamak veya eşleştirmek için kullanılan bir tekniktir. Bu, genellikle HTTP POST isteği ile bir form gönderildiğinde veya bir API üzerinden gelen veri isteği işlendiğinde gerçekleşir.*
 
 **Örneğin;**
+
 Örnek bir model sınıfı:
 ```csharp
 public class KullaniciModel
