@@ -1,5 +1,5 @@
 ﻿# C# İsimlendirme Kuralları 
-C# programlama dilinde isimlendirme konusunda belirli endüstri standartları ve Microsoft'un önerdiği yönergeler bulunmaktadır. Bu yönergeler, kodun okunabilirliğini ve anlaşılabilirliğini arttırmayı amaçlar. İşte C# için bazı yaygın isimlendirme kuralları:
+*C# programlama dilinde isimlendirme konusunda belirli endüstri standartları ve Microsoft'un önerdiği yönergeler bulunmaktadır. Bu yönergeler, kodun okunabilirliğini ve anlaşılabilirliğini arttırmayı amaçlar. İşte C# için bazı yaygın isimlendirme kuralları:*
 
 1.  **PascalCasing**: İlk harfi büyük olan kelimelerden oluşan isimlendirme yöntemi. Sınıf isimleri ve özellik isimleri için kullanılır.
     -   Örnek: `CustomerAccount`, `MaximumValue`.
