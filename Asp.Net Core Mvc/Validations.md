@@ -59,7 +59,7 @@ public class Ogrenci
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="tr">
 <head>
-	@*Client-side validation için eklenmesi gereken kütüphaneler: *@
+    @*Client-side validation için eklenmesi gereken kütüphaneler: *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
