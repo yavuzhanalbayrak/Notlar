@@ -82,7 +82,8 @@ ASP.NET Core MVC'de bir Controller aksiyonundan bir View'e veri göndermenin bir
    ```csharp
    public IActionResult DisplayMessage()
    {
-       ViewBag.Message = TempData["Message"];
+       var data = TempData["Message"].ToString();
+       ViewBag.Message = data;
        return View();
    }
    ```
