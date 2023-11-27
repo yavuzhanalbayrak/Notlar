@@ -3,21 +3,20 @@
 SQL ilişkileri (relationships), bir veritabanındaki tablolar arasındaki bağlantıları ifade eder. İlişkiler, veritabanı tasarımının temel bir unsuru olarak kullanılır ve veri bütünlüğünü sağlamak, veri tekrarını önlemek ve veri modelini daha etkili bir şekilde organize etmek için önemlidir.
 ## Relationships(İlişkiler) Terimleri
 ### Principal Entity(Asıl Entity)
-Kendi başına var olabilen tabloyu modelleyen entity'e denir.
-Departmanlar tablosunu modelleyen 'Departman' entity'sidir.
+- Kendi başına var olabilen tabloyu modelleyen entity'e denir.
+- Departmanlar tablosunu modelleyen 'Departman' entity'sidir.
 
 ### Dependent Entity(Bağımlı Entity)
-Kendi başına var olamayan, bir başka tabloya bağımlı(ilişkisel olarak bğaımlı) olan tabloyu modelleyen entity'e denir.
-Calisanlar tablosunu modelleyen 'Calisan' entity'sidir.
+- Kendi başına var olamayan, bir başka tabloya bağımlı(ilişkisel olarak bğaımlı) olan tabloyu modelleyen entity'e denir.
+- Calisanlar tablosunu modelleyen 'Calisan' entity'sidir.
 
 ### Foreign Key
-Principal Entity ile Dependent Entity arasındaki ilişkiyi sağlayan key'dir.
-
-Dependent Entity'de tanımlanır.
-Principal Entity'de ki Principal Key'i tutar.
+- Principal Entity ile Dependent Entity arasındaki ilişkiyi sağlayan key'dir.
+- Dependent Entity'de tanımlanır.
+- Principal Entity'de ki Principal Key'i tutar.
 
 ### Principal Key
-Principal Entity'deki id'nin kendisidir. Principal Entity'nin kimliği olan kolonu ifade eden propertydir.
+- Principal Entity'deki id'nin kendisidir. Principal Entity'nin kimliği olan kolonu ifade eden propertydir.
 
 ```csharp
 class Calisan
@@ -45,49 +44,45 @@ class Departman
 
 
 ### Navigation Property Nedir?
-İlişkisel tablolar arasındaki fiziksel erişimi entity class'ları üzerinden sağlayan property'lerdir.
-
-Bir property'nin navigation property olabilmesi için kesinlikle entity türünden olması gerekiyor.
-
-Navigation property'ler entity'lerdeki tanımlarına göre n'e n yahut 1'e n şeklinde ilişki türlerini ifade etmektedirler.
+- İlişkisel tablolar arasındaki fiziksel erişimi entity class'ları üzerinden sağlayan property'lerdir.
+- Bir property'nin navigation property olabilmesi için kesinlikle entity türünden olması gerekiyor.
+- Navigation property'ler entity'lerdeki tanımlarına göre n'e n yahut 1'e n şeklinde ilişki türlerini ifade etmektedirler.
 
 
 ## İlişki Türleri
 ### One to One
-Çalışan ile adresi arasındaki ilişki.
+- Çalışan ile adresi arasındaki ilişki.
 
 
 ### One to Many
-Çalışan ile departman arasındaki ilişki.
+- Çalışan ile departman arasındaki ilişki.
 
 ### Many to Many
-Çalışanlar ile projeler arasındaki ilişki.
+- Çalışanlar ile projeler arasındaki ilişki.
 
 ## Entity Framework Core'da İlişki Yapılandırma Yöntemleri
 ### Default Conventions
-Varsayılan entity kurallarını kullanarak yapılan ilişki yapılandırma yöntemleridir.
-
-Navigation property'leri kullanarak ilişki şablonlarını çıkarmaktadır.
+- Varsayılan entity kurallarını kullanarak yapılan ilişki yapılandırma yöntemleridir.
+- Navigation property'leri kullanarak ilişki şablonlarını çıkarmaktadır.
 
 ### Data Annotations Attributes
-Entity'nin niteliklerine göre ince ayarlar yapmamızı sağlayan attribute'lardır. [Key], [ForeignKey]
+- Entity'nin niteliklerine göre ince ayarlar yapmamızı sağlayan attribute'lardır. [Key], [ForeignKey]
 
 
 ### Fluent API
-
-Entity modellerindeki ilişkileri yapılandırırken daha detaylı çalışmamızı sağlayan yöntemdir.
+- Entity modellerindeki ilişkileri yapılandırırken daha detaylı çalışmamızı sağlayan yöntemdir.
 
 ### HasOne
-İlgili entity'nin ilişkisel entity'ye birebir ya da bire çok olacak şekilde ilişkisini yapılandırmaya başlayan metottur.
+- İlgili entity'nin ilişkisel entity'ye birebir ya da bire çok olacak şekilde ilişkisini yapılandırmaya başlayan metottur.
 
 ### HasMany
-İlgili entity'nin ilişkisel entity'ye çoka bir ya da çoka çok olacak şekilde ilişkisini yapıulandırmaya başlayan metottur.
+- İlgili entity'nin ilişkisel entity'ye çoka bir ya da çoka çok olacak şekilde ilişkisini yapıulandırmaya başlayan metottur.
 
 ### WithOne
-HasOne ya da HasMany'den sonra bire bir ya da çoka bir olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
+- HasOne ya da HasMany'den sonra bire bir ya da çoka bir olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
 
 ### WithMany
-HasOne ya da HasMany'den sonra bire çok ya da çoka çok olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
+- HasOne ya da HasMany'den sonra bire çok ya da çoka çok olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
 
 ## One to One
 
@@ -177,7 +172,7 @@ class ESirketDbContext : DbContext
 ```
 ## One to Many
 ### Default Convention
-Default convention yönteminde bire çok ilişkiyi kurarken foreign key kolonuna karşılık gelen bir property tanımlamak mecburiyetinde değilidiz. Eğer tanımlamazsak EF Core bunu kendisi tamamlayacak yok eğer tanımlarsak, tanımladığımızı baz alacaktır.
+- Default convention yönteminde bire çok ilişkiyi kurarken foreign key kolonuna karşılık gelen bir property tanımlamak mecburiyetinde değilidiz. Eğer tanımlamazsak EF Core bunu kendisi tamamlayacak yok eğer tanımlarsak, tanımladığımızı baz alacaktır.
 ```csharp
 class Calisan //Dependent Entity
 {
@@ -197,7 +192,7 @@ class Departman
 }
 ```
 ### Data Annotations
-Default convention yönteminde foreign key kolonuna karşılık gelen property'i tanımladığımızda bu property ismi temel geleneksel entity tanımlama kurallarına uymuyorsa eğer Data Annotations'lar ile müdahalede bulunabiliriz."
+- Default convention yönteminde foreign key kolonuna karşılık gelen property'i tanımladığımızda bu property ismi temel geleneksel entity tanımlama kurallarına uymuyorsa eğer Data Annotations'lar ile müdahalede bulunabiliriz."
 ```csharp
 class Calisan //Dependent Entity
 {
