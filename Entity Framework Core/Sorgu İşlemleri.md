@@ -16,17 +16,12 @@ var urunler2 = await (from urun in context.Urunler
 ```
 
 **Sorguyu Execute Etmek İçin Ne Yapmamız Gerekmektedir?**
-```csharp
-#region ToListAsync 
-#region Method Syntax
-var urunler = await context.Urunler.ToListAsync();
-#endregion
-#region Query Syntax
-var urunler = await (from urun in context.Urunler
-                     select urun).ToListAsync();
-#endregion
-#endregion
 
+- **Deferred Execution(Ertelenmiş Çalışma):**
+IQueryable çalışmalarında ilgili kod yazıldığı noktada tetiklenmez/çalıştırılmaz yani ilgili kod yazıldığı noktada sorguyu generate etmez! Nerede eder? Çalıştırıldığı/execute edildiği noktada tetiklenir! İşte bu durumada ertelenmiş çalışma denir!
+- **Komutla Execute etme(TolistAsync())**:
+```await urunler.ToListAsync();```
+```csharp
 int urunId = 5;
 string urunAdi = "2";
 
@@ -40,7 +35,7 @@ urunAdi = "4";
 
 //Deferred Execution(Ertelenmiş Çalışma)
 //Parametrelerin son haline(urunId=200, urunAdi=4) göre sorgu execute edilir.
-//Entity Framework kendi Execute(IEnumerable) edip sorguyu yapar.
+//Entity Framework foreach'i görünce kendi Execute(IEnumerable) edip sorguyu yapar.
 foreach (Urun urun in urunler)
 {
     Console.WriteLine(urun.UrunAdi);
@@ -48,18 +43,6 @@ foreach (Urun urun in urunler)
 
 //Komutla Execute etme(TolistAsync()).
 await urunler.ToListAsync();
-
-#region Foreach
-
-foreach (Urun urun in urunler)
-{
-    Console.WriteLine(urun.UrunAdi);
-}
-
-#region Deferred Execution(Ertelenmiş Çalışma)
-IQueryable çalışmalarında ilgili kod yazıldığı noktada tetiklenmez/çalıştırılmaz yani ilgili kod yazıldığı noktada sorguyu generate etmez! Nerede eder? Çalıştırıldığı/execute edildiği noktada tetiklenir! İşte bu durumada ertelenmiş çalışma denir!
-#endregion
-#endregion
 ```
 **IQueryable ve IEnumerable Nedir?**
 ```csharp
