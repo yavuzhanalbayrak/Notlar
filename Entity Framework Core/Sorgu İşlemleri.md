@@ -183,6 +183,7 @@ var urun = await context.Urunler.FirstOrDefaultAsync(u => u.Id == 55);
 #endregion
 ```
 ![](https://cdn.discordapp.com/attachments/1166081920724115598/1166141617942564924/image.png?ex=656e5303&is=655bde03&hm=fb8c608a590c0069e7ec843c57a213145d57cfeee88dab4010c893f1102243d9&)
+
 **Find:**
 Find fonksiyonu, primary key kolonuna özel hızlı bir şekilde sorgulama yapmamızı sağlayan bir fonksiyondur.
 ```csharp
@@ -196,6 +197,7 @@ UrunParca u = await context.UrunParca.FindAsync(2, 5);
 #endregion
 ```
 ![](https://cdn.discordapp.com/attachments/1166081920724115598/1166143282959634522/image.png?ex=656e5490&is=655bdf90&hm=17937a9ed67ba7b42184eeace9fb7de7ac52bdcbb366f4abe150ff0737a1660c&)
+
 **LastAsync:**
 Sorgu neticesinde gelen verilerden en sonuncusunu getirir. Eğer ki hiç veri gelmiyorsa hata fırlatır. OrderBy kullanılması mecburidir.
 ```csharp
@@ -260,7 +262,7 @@ Vermiş olduğumuz sayısal proeprtynin toplamını alır.
 var fiyatToplam = await context.Urunler.SumAsync(u => u.Fiyat);
 ```
 
-#region AverageAsync
+**AverageAsync:**
 Vermiş olduğumuz sayısal proeprtynin aritmatik ortalamasını alır.
 ```csharp
 var aritmatikOrtalama = await context.Urunler.AverageAsync(u => u.Fiyat);
@@ -272,7 +274,7 @@ Like '%...%' sorgusu oluşturmamızı sağlar.
 var urunler = await context.Urunler.Where(u => u.UrunAdi.Contains("7")).ToListAsync();
 ```
 
-#region StartsWith
+**StartsWith:**
 Like '...%' sorgusu oluşturmamızı sağlar.
 ```csharp
 var urunler = await context.Urunler.Where(u => u.UrunAdi.StartsWith("7")).ToListAsync();
