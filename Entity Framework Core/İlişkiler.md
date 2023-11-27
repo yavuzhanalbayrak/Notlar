@@ -2,21 +2,21 @@
   
 SQL ilişkileri (relationships), bir veritabanındaki tablolar arasındaki bağlantıları ifade eder. İlişkiler, veritabanı tasarımının temel bir unsuru olarak kullanılır ve veri bütünlüğünü sağlamak, veri tekrarını önlemek ve veri modelini daha etkili bir şekilde organize etmek için önemlidir.
 ## Relationships(İlişkiler) Terimleri
-#### Principal Entity(Asıl Entity)
+### Principal Entity(Asıl Entity)
 Kendi başına var olabilen tabloyu modelleyen entity'e denir.
 Departmanlar tablosunu modelleyen 'Departman' entity'sidir.
 
-#### Dependent Entity(Bağımlı Entity)
+### Dependent Entity(Bağımlı Entity)
 Kendi başına var olamayan, bir başka tabloya bağımlı(ilişkisel olarak bğaımlı) olan tabloyu modelleyen entity'e denir.
 Calisanlar tablosunu modelleyen 'Calisan' entity'sidir.
 
-#### Foreign Key
+### Foreign Key
 Principal Entity ile Dependent Entity arasındaki ilişkiyi sağlayan key'dir.
 
 Dependent Entity'de tanımlanır.
 Principal Entity'de ki Principal Key'i tutar.
 
-#### Principal Key
+### Principal Key
 Principal Entity'deki id'nin kendisidir. Principal Entity'nin kimliği olan kolonu ifade eden propertydir.
 
 ```csharp
@@ -44,7 +44,7 @@ class Departman
 
 
 
-#### Navigation Property Nedir?
+### Navigation Property Nedir?
 İlişkisel tablolar arasındaki fiziksel erişimi entity class'ları üzerinden sağlayan property'lerdir.
 
 Bir property'nin navigation property olabilmesi için kesinlikle entity türünden olması gerekiyor.
@@ -53,45 +53,45 @@ Navigation property'ler entity'lerdeki tanımlarına göre n'e n yahut 1'e n şe
 
 
 ## İlişki Türleri
-#### One to One
+### One to One
 Çalışan ile adresi arasındaki ilişki.
 
 
-#### One to Many
+### One to Many
 Çalışan ile departman arasındaki ilişki.
 
-#### Many to Many
+### Many to Many
 Çalışanlar ile projeler arasındaki ilişki.
 
 ## Entity Framework Core'da İlişki Yapılandırma Yöntemleri
-#### Default Conventions
+### Default Conventions
 Varsayılan entity kurallarını kullanarak yapılan ilişki yapılandırma yöntemleridir.
 
 Navigation property'leri kullanarak ilişki şablonlarını çıkarmaktadır.
 
-#### Data Annotations Attributes
+### Data Annotations Attributes
 Entity'nin niteliklerine göre ince ayarlar yapmamızı sağlayan attribute'lardır. [Key], [ForeignKey]
 
 
-#### Fluent API
+### Fluent API
 
 Entity modellerindeki ilişkileri yapılandırırken daha detaylı çalışmamızı sağlayan yöntemdir.
 
-#### HasOne
+### HasOne
 İlgili entity'nin ilişkisel entity'ye birebir ya da bire çok olacak şekilde ilişkisini yapılandırmaya başlayan metottur.
 
-#### HasMany
+### HasMany
 İlgili entity'nin ilişkisel entity'ye çoka bir ya da çoka çok olacak şekilde ilişkisini yapıulandırmaya başlayan metottur.
 
-#### WithOne
+### WithOne
 HasOne ya da HasMany'den sonra bire bir ya da çoka bir olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
 
-#### WithMany
+### WithMany
 HasOne ya da HasMany'den sonra bire çok ya da çoka çok olacak şekilde ilişki yapılandırmasını tamamlayan metottur.
 
 ## One to One
 
-#### Default Convention
+### Default Convention
 - Her iki entity'de Navigation Property ile birbirlerini tekil olarak referans ederek fiziksel bir ilişkinin olacağı ifade edilir.
 - One to One ilişki türünde, dependent entity'nin hangisi olduğunu default olarak belirleyebilmek pek kolay değildir. Bu durumda fiziksel olarak bir foreign key'e karşılık property/kolon tanımlayarak çözüm getirebiliyoruz.
 - foreign key'e karşılık property tanımlayarak lüzumsuz bir kolon oluşturmuş oluyoruz.
@@ -112,7 +112,7 @@ class CalisanAdresi
     public Calisan Calisan { get; set; }
 }
 ```
-#### Data Annotations
+### Data Annotations
 - Navigation Property'ler tanımlanmalıdır.
 - Foreign kolonunun ismi default convention'ın dışında bir kolon olacaksa eğer ForeignKey attribute ile bunu bildirebiliriz.
 - Foreign Key kolonu oluşturulmak zorunda değildir. 
@@ -134,7 +134,7 @@ class CalisanAdresi
     public Calisan Calisan { get; set; }
 }
 ```
-#### Fluent API
+### Fluent API
 - Navigation Propertyler tanımlanmalı!
 - Fluent API yönteminde entity'ler arasındaki ilişki context sınıfı içerisinde OnModelCreating fonksiyonun override edilerek metotlar aracılığıyla tasarlanması gerekmektedir. Yani tüm sorumluluk bu fonksiyon içerisindeki çalışmalardadır.
 ```csharp
@@ -176,7 +176,7 @@ class ESirketDbContext : DbContext
 }
 ```
 ## One to Many
-#### Default Convention
+### Default Convention
 Default convention yönteminde bire çok ilişkiyi kurarken foreign key kolonuna karşılık gelen bir property tanımlamak mecburiyetinde değilidiz. Eğer tanımlamazsak EF Core bunu kendisi tamamlayacak yok eğer tanımlarsak, tanımladığımızı baz alacaktır.
 ```csharp
 class Calisan //Dependent Entity
@@ -196,7 +196,7 @@ class Departman
 
 }
 ```
-#### Data Annotations
+### Data Annotations
 Default convention yönteminde foreign key kolonuna karşılık gelen property'i tanımladığımızda bu property ismi temel geleneksel entity tanımlama kurallarına uymuyorsa eğer Data Annotations'lar ile müdahalede bulunabiliriz."
 ```csharp
 class Calisan //Dependent Entity
@@ -218,7 +218,7 @@ class Departman
 
 }
 ```
-#### Fluent API
+### Fluent API
 ```csharp
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -261,7 +261,7 @@ class ESirketDbContext : DbContext
 ```
 ## Many to Many
 
-#### Default Convention
+### Default Convention
 - İki entity arasındaki ilişkiyi navigation propertyler üzerinden çoğul olarak kurmalıyız. (ICollection, List)
 - Default Convention'da cross table'ı manuel oluşturmak zorunda değiliz. EF Core tasarıma uygun bir şekilde cross table'ı kendisi otomatik basacak ve generate edecektir.
 - Ve oluşturulan cross table'ın içerisinde composite primary key'i de otomatik oluşturmuş olacaktır.
@@ -281,7 +281,7 @@ class Yazar
     public List<Kitap> Kitaplar { get; set; }
 }
 ```
-#### Data Annotations
+### Data Annotations
 - Cross table manuel olarak oluşturulmak zorundadır.
 - Entity'lerde oluşturduğumuz cross table entity si ile bire çok bir ilişki kurulmalı.
 - CT'da composite primary key'i data annotation(Attributes)lar ile manuel kuramıyoruz. Bunun için de Fluent API'da çalışma yaopmamız gerekiyor.
@@ -314,7 +314,7 @@ class Yazar
     public ICollection<KitapYazar> Kitaplar { get; set; }
 }
 ```
-#### Fluent API
+### Fluent API
 - Cross table manuel oluşturulmalı
 - DbSet olarak eklenmesine lüzum yok,
 - Composite PK Haskey metodu ile kurulmalı!
