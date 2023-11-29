@@ -69,7 +69,7 @@ class Departman
 - Entity'nin niteliklerine göre ince ayarlar yapmamızı sağlayan attribute'lardır. [Key], [ForeignKey]
 
 
-### Fluent API
+### Fluent API (Best Practice)
 - Entity modellerindeki ilişkileri yapılandırırken daha detaylı çalışmamızı sağlayan yöntemdir.
 
 ### HasOne
