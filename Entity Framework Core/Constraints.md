@@ -36,7 +36,7 @@ modelBuilder.Entity<Blog>()
 ```
 
 ### Foreign Key Constraint
-
+- İki tablo arasında bir ilişki oluşturur ve bu ilişkiye göre bir tablodaki sütunun diğer tablodaki bir sütunu referans almasını sağlar.
 #### HasForeignKey Fonksiyonu:
 ```csharp
 modelBuilder.Entity<Blog>()
@@ -78,7 +78,7 @@ modelBuilder.Entity<Blog>()
 ```
 
 ### Unique Constraint
-- Bir Kolonun verilerini eşsiz hale getirir.
+- Bir sütundaki değerlerin benzersiz olmasını sağlar, yani aynı değeri içeren birden fazla kayıt eklenemez.
 
 #### HasIndex - IsUnique Fonksiyonları:
 ```csharp
@@ -100,12 +100,11 @@ modelBuilder.Entity<Blog>()
 ```
 
 ### Check Constratint
+-  Bir sütundaki değerlerin belirli bir koşulu karşılamasını zorlar.
+- Sql sorgusuyla çalışır.
 
 #### HasCheckConstraint:
-- Verilere eklenme şartı koyar.
-- Sql sorgusuyla çalışır.
 ```csharp
 modelBuilder.Entity<Post>()
             .HasCheckConstraint("a_b_check_const", "[A] > [B]");
 ```
-
