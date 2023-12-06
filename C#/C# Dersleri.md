@@ -103,6 +103,7 @@ Hata Türleri:
 ```
     
    ## ref keyword'ü
+   - ref keyword'ü, C# programlamasında kullanılan bir anahtar kelimedir ve "referans" anlamına gelir. Bu keyword, parametrelerin metotlara referans olarak iletilmesini ve metot içinde yapılan değişikliklerin orijinal değeri etkilemesini sağlar.
 ```csharp
     //Örnek 1
     
