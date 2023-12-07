@@ -61,20 +61,22 @@ var persons = await context.Persons.FromSql($"EXECUTE dbo.sp_GetAllPersons @Pers
     .ToListAsync();
 ```
 ### Dynamic SQL Oluşturma ve Parametre Girme - FromSqlRaw
-- FromSql ve FromSqlInterpolated metotlarında SQL Injection vs. gibi güvenlik önlemleri alınmış vaziyettedir. Lakin dinamik olarak sorguları oluşturuyorsanız eğer burada güvenlik geliştirici sorumludur. Yani gelen sorguda/veri yorumlar, noktalı virgüller yahut SQL'e özel karakterlerin algılanması ve bunların temizlenmesi geliştirici tarafından gerekmektedir.
+- EF Core dinamik olarak oluşturulan sorgularda özellikle kolon isimleri parametreleştirilmişse o sorguyu ÇALIŞTIRMAYACAKTIR!
 ```csharp
 // Hatalı
 string columnName = "PersonId", value = "3";
 var persons = await context.Persons.FromSql($"Select * From Persons Where {columnName} = {value}")
     .ToListAsync();
-
-//EF Core dinamik olarak oluşturulan sorgularda özellikle kolon isimleri parametreleştirilmişse o sorguyu ÇALIŞTIRMAYACAKTIR!
-
+```
+- Bu hatanın önüne geçmek için:
+```csharp
 string columnName = "PersonId";
 SqlParameter value = new("PersonId", "3");
 var persons = await context.Persons.FromSqlRaw($"Select * From Persons Where {columnName} = @PersonId", value)
     .ToListAsync();
 ```
+**Dikkat**
+- FromSql ve FromSqlInterpolated metotlarında SQL Injection vs. gibi güvenlik önlemleri alınmış vaziyettedir. Lakin dinamik olarak sorguları oluşturuyorsanız eğer burada güvenlik geliştirici sorumludur. Yani gelen sorguda/veri yorumlar, noktalı virgüller yahut SQL'e özel karakterlerin algılanması ve bunların temizlenmesi geliştirici tarafından gerekmektedir.
 ### SqlQuery - Entiy Olmayan Scalar Sorguların Çalıştırılması - Non Entity - EF Core 7.0
 - Entity'si olmayan scalar sorguların çalıştırılıp sonucunu elde etmemizi sağlayan yeni bir fonksiyondur.
 
