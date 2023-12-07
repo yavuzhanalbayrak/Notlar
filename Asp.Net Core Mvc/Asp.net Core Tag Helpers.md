@@ -17,8 +17,10 @@
 - **asp-action :** *Yönlendirilecek action'ı ifade eder.*
 - **asp-route:** *İlgili metoda parametre ile istek oluşturma.*
 ```html
-<form asp-controller="Admin" asp-action="UpdateCategories" asp-route-id=@category.Id method="get">
+<form asp-controller="Admin" asp-action="UpdateCategories" asp-route-id=@category.Id asp-route-sayi=5 method="get">
 ```
+- **```asp-route-id = @category.Id```**: Route parameter
+- **```asp-route-sayi = 5```**: QueryString
 ## asp-for
 - *`<input>` tag'inin içinde kullanılırsa Model binding yapmaya yarar.* 
 ```csharp
