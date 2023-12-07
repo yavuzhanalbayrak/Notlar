@@ -6,7 +6,9 @@
 
 #### View Oluşturma
 **1. adım :** boş bir migration oluşturulmalıdır.
+
 **2. adım :** migration içerisindeki Up fonksiyonunda view'in create komutları, down fonksiyonunda ise drop komutları yazılmalıdır.
+
 **3. adım :** migrate ediniz.
 
 #### View'i DbSet Olarak Ayarlama
