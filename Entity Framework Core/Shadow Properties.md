@@ -74,13 +74,13 @@ class Program
             var createdAtValue = context.Entry(blog).Property("CreatedAt").CurrentValue;
             Console.WriteLine($"CreatedAt: {createdAtValue}");
 
-			// LINQ sorgusu kullanarak shadow property ile sorgu  
-			var recentBlogs = context.Blogs 
-									.Where(b => EF.Property<DateTime>(b, "CreatedAt") > DateTime.Now.AddMonths(-1)) 
-									.ToList();
+	    // LINQ sorgusu kullanarak shadow property ile sorgu
+               var recentBlogs = await context.Blogs
+					.Where(b => EF.Property<DateTime>(b, "CreatedAt") > DateTime.Now.AddMonths(-1)) 
+					.ToListAsync();
 
-            context.Blogs.Add(blog);
-            context.SaveChanges();
+            await context.Blogs.AddAsync(blog);
+            await context.SaveChangesAsync();
         }
     }
 }
