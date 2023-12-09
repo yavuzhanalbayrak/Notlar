@@ -309,10 +309,10 @@ var urunler = await context.Urunler.Select(u => new
 
 
 var urunler = await context.Urunler.Select(u => new UrunDetay
-{
-    Id = u.Id,
-    Fiyat = u.Fiyat
-}).ToListAsync();
+                                                {
+                                                    Id = u.Id,
+                                                    Fiyat = u.Fiyat
+                                                }).ToListAsync();
 
 ```
 
