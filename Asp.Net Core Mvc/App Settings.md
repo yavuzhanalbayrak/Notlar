@@ -39,7 +39,7 @@ var configuration = builder.Configuration;
 builder.Services.Configure<User>(configuration.GetSection("Person"));
 ```
 
-Bu örnekte, `"AppSettings"` altındaki yapılandırmaları `AppSettings` adlı bir sınıfa bağlamak için `services.Configure` kullanılmaktadır. `AppSettings` sınıfı, `appsettings.json` dosyasındaki `"AppSettings"` altındaki yapılandırmalara karşılık gelir ve uygulama kodunda bu ayarlara erişmek için kullanılabilir.
+Bu örnekte, `"AppSettings"` altındaki yapılandırmaları `User` adlı bir sınıfa bağlamak için `services.Configure` kullanılmaktadır. `User` sınıfı, `appsettings.json` dosyasındaki `"AppSettings"` altındaki yapılandırmalara karşılık gelir ve uygulama kodunda bu ayarlara erişmek için kullanılabilir.
 
 Uygulama kodunda `IConfiguration` servisini enjekte ederek veya `IOptions<T>` kullanarak `appsettings.json` dosyasındaki ayarlara erişebilirsiniz.
 
@@ -67,6 +67,6 @@ public class HomeController : Controller
         //options ile appsettings.json'daki veriyi container'dan okuma(Önerilen)
         User user2 = _userConfig;
 
-	 }
+     }
 }
 ```
