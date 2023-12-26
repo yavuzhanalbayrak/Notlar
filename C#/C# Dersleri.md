@@ -14,9 +14,10 @@ Hata Türleri:
 - Derleme/Syntax/Sözdizimi Hatası
 - Runtime Hataları (Try-Catch)
 - Mantıksal Hatalar
-    
-   ## Tür Dönüşümleri
-   ```csharp
+
+
+## Tür Dönüşümleri
+```csharp
     //Bilinçsiz Tür Dönüşümü (Küçükten Büyüğe)
     int a = 10;
     float b = a;
@@ -24,11 +25,12 @@ Hata Türleri:
     //Bilinçli Tür Dönüşümü (Büyükten Küçüğe)
     float d = 3.10F;
     int c = (int)d;
-    #endregion
-    
-    #region @ Operatörü
+```
+
+## @ Operatörü
+```csharp
     string @static = "@ operatörü progmatik keywordleri değişken ismi olarak kullanmayı sağlar";
-    ```
+```
    ## $ Operatörü
 ```csharp
     var sayi1 = 10; //null olammaz çünkü compile aşamasında türü belirlenir.
