@@ -141,5 +141,3 @@ modelBuilder.Entity<Person>()
 
 ### .NET 6 - Value Converter For Nullable Fields
 - .NET 6'dan önce value converter'lar null değerlerin dönüşümünü desteklememekteydi. .NET 6 ile artık null değerler de dönüştürülebilmektedir.
-
-}
